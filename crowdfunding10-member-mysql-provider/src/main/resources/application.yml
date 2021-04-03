@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: chl-crowd-mysql
+  datasource:
+    name: mydb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/crowd?useUnicode=true&amp&characterEncoding=utf8&amp&serverTimezone=GMT%2B8
+    username: root
+    password: password
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+mybatis:
+  mapper-locations: classpath*:/mybatis/mapper/*Mapper.xml
+logging:
+  level:
+    com.chl.crowd.mapper: debug
+    com.chl.crowd.test: debug
