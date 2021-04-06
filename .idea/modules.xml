@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../crowdfunding01-admin-parent/crowdfunding05-common-util/crowdfunding05-common-util.iml" filepath="$PROJECT_DIR$/../crowdfunding01-admin-parent/crowdfunding05-common-util/crowdfunding05-common-util.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../crowdfunding01-admin-parent/crowdfunding06-common-reverse/crowdfunding06-common-reverse.iml" filepath="$PROJECT_DIR$/../crowdfunding01-admin-parent/crowdfunding06-common-reverse/crowdfunding06-common-reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfunding05-common-util/crowdfunding05-common-util.iml" filepath="$PROJECT_DIR$/crowdfunding05-common-util/crowdfunding05-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfunding06-common-reverse/crowdfunding06-common-reverse.iml" filepath="$PROJECT_DIR$/crowdfunding06-common-reverse/crowdfunding06-common-reverse.iml" />
       <module fileurl="file://$PROJECT_DIR$/crowdfunding07-member-parent.iml" filepath="$PROJECT_DIR$/crowdfunding07-member-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/crowdfunding08-member-eureka/crowdfunding08-member-eureka.iml" filepath="$PROJECT_DIR$/crowdfunding08-member-eureka/crowdfunding08-member-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/crowdfunding09-member-entity/crowdfunding09-member-entity.iml" filepath="$PROJECT_DIR$/crowdfunding09-member-entity/crowdfunding09-member-entity.iml" />

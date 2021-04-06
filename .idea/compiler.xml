@@ -17,8 +17,8 @@
         <module name="crowdfunding17-member-api" />
         <module name="crowdfunding14-member-order-consumer" />
         <module name="crowdfunding16-member-zuul" />
-        <module name="crowdfunding06-common-reverse" />
         <module name="crowdfunding10-member-mysql-provider" />
+        <module name="crowdfunding06-common-reverse" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">

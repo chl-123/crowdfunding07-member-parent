@@ -1,0 +1,15 @@
+server:
+  port: 4444
+spring:
+  application:
+    name: chl-auth
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+
+
+

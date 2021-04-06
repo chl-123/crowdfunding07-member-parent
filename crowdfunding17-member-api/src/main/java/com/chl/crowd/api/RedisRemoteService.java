@@ -1,5 +1,6 @@
 package com.chl.crowd.api;
 
+
 import com.chl.crowd.util.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
