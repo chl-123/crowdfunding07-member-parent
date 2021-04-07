@@ -10,6 +10,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka
-
-
+short:
+  message:
+    method: POST
+    appcode: f3c717a423ca4ec3abd25e3d805e7b67
 

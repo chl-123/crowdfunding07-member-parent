@@ -16,6 +16,6 @@ public class RedisTest {
     @Test
     public void testSet(){
         ValueOperations<String,String> operations=stringRedisTemplate.opsForValue();
-        operations.append("apple","苹果");
+        operations.append("dddaaa","苹果");
     }
 }

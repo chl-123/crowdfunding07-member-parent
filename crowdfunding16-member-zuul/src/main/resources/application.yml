@@ -14,9 +14,6 @@ zuul:
     crowd-portal:
       service-id: chl-auth
       path: /**
-ribbon:
-  eureka:
-    enabled: false
 chl-auth:
   ribbon:
     listOfServers: http://localhost:4444
