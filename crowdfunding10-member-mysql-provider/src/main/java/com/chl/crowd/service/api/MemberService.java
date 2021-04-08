@@ -8,4 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface MemberService {
 
     Member getMemberByLoginAcct(String loginacct);
+
+    void savaMember(Member member);
 }

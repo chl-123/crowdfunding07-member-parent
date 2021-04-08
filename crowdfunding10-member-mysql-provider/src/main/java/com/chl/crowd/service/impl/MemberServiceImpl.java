@@ -6,6 +6,7 @@ import com.chl.crowd.mapper.MemberMapper;
 import com.chl.crowd.service.api.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
@@ -23,5 +24,12 @@ public class MemberServiceImpl implements MemberService {
         criteria.andLoginacctEqualTo(loginacct);
 
         return  memberMapper.selectByExample(memberExample).get(0);
+    }
+    @Transactional(propagation = Propagation.REQUIRES_NEW,
+                    rollbackFor = Exception.class,
+                    readOnly = false
+    )
+    public void savaMember(Member member) {
+        memberMapper.insert(member);
     }
 }

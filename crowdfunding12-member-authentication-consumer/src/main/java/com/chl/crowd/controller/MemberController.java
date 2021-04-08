@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.concurrent.TimeUnit;
 
 @Controller
-public class MemberController {
+public class
+
+MemberController {
     @Autowired
     ShortMessageConfig shortMessageConfig;
     @Autowired
