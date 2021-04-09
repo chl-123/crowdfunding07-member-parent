@@ -1,5 +1,7 @@
 server:
   port: 4444
+  tomcat:
+    connection-timeout: 180000
 spring:
   application:
     name: chl-auth
@@ -14,4 +16,7 @@ short:
   message:
     method: POST
     appcode: f3c717a423ca4ec3abd25e3d805e7b67
+ribbon:
+  ReadTimeout: 70000
+  ConnectTimeout: 70000
 

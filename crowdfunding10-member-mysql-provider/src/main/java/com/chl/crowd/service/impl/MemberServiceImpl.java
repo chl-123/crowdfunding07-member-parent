@@ -25,6 +25,9 @@ public class MemberServiceImpl implements MemberService {
 
         return  memberMapper.selectByExample(memberExample).get(0);
     }
+    /*
+    * 添加事务管理
+    * */
     @Transactional(propagation = Propagation.REQUIRES_NEW,
                     rollbackFor = Exception.class,
                     readOnly = false

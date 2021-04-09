@@ -1,5 +1,5 @@
 server:
-  port: 4040
+  port: 3333
 spring:
   application:
     name: chl-crowd-redis
@@ -9,3 +9,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
