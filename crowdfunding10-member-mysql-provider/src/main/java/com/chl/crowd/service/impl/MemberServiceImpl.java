@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional(readOnly = true)
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -22,8 +24,12 @@ public class MemberServiceImpl implements MemberService {
         MemberExample.Criteria criteria=memberExample.createCriteria();
         //封装查询条件
         criteria.andLoginacctEqualTo(loginacct);
-
-        return  memberMapper.selectByExample(memberExample).get(0);
+        List<Member> members = memberMapper.selectByExample(memberExample);
+        if (members == null|| members.size()==0) {
+            return null;
+        }
+        
+        return  members.get(0);
     }
     /*
     * 添加事务管理

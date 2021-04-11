@@ -62,12 +62,12 @@
             <div id="navbar" class="navbar-collapse collapse" style="float:right;">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> 张三<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>[[${session.loginMember.username}]]<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="member.html"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
+                    <li><a href="member-center.html"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
                     <li class="divider"></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
+                    <li><a href="index.html" th:href="@{/auth/member/do/loginout.html}"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
                   </ul>
                 </li>
               </ul>
@@ -86,7 +86,7 @@
 						<img src="img/services-box1.jpg" class="img-thumbnail" alt="">
 						<div class="caption" style="text-align:center;">
 							<h3>
-								ZhangSan
+                                [[${session.loginMember.username}]]
 							</h3>
 							<span class="label label-danger" style="cursor:pointer;" onclick="window.location.href='accttype.html'">未实名认证</span>
 						</div>

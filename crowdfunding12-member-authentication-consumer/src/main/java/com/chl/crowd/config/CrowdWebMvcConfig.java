@@ -12,5 +12,11 @@ public class CrowdWebMvcConfig implements WebMvcConfigurer {
         String viewName="member-register";
         //添加viewController
         registry.addViewController(urlPath).setViewName(viewName);
+        urlPath="/auth/member/to/login/page.html";
+        viewName="member-login";
+        registry.addViewController(urlPath).setViewName(viewName);
+        urlPath="/auth/member/to/center/page.html";
+        viewName="member-center";
+        registry.addViewController(urlPath).setViewName(viewName);
     }
 }
