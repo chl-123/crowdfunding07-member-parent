@@ -28,7 +28,7 @@
       <module name="crowdfunding08-member-eureka" target="8" />
       <module name="crowdfunding09-member-entity" target="8" />
       <module name="crowdfunding10-member-mysql-provider" target="8" />
-      <module name="crowdfunding11-member-redis-provider" target="8" />
+      <module name="crowdfunding11-member-redis-provider" target="9" />
       <module name="crowdfunding12-member-authentication-consumer" target="8" />
       <module name="crowdfunding13-member-project-consumer" target="8" />
       <module name="crowdfunding14-member-order-consumer" target="8" />
