@@ -1,4 +1,4 @@
-package com.chl.crowd.entity;
+package com.chl.crowd.entity.po;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

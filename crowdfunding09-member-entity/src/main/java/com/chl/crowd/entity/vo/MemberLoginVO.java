@@ -1,9 +1,9 @@
-package com.chl.crowd.entity;
+package com.chl.crowd.entity.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.ibatis.javassist.SerialVersionUID;
+
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberLoginVO implements Serializable {
-    private static final long serialVersionUID=1l;
+    private static final long serialVersionUID=1L;
     private Integer id;
     private String username;
     private String email;

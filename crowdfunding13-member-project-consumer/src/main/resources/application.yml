@@ -1,0 +1,19 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: chl-auth-project
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 127.0.0.1
+    session:
+      store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+ribbon:
+  ReadTimeout: 70000
+  ConnectTimeout: 70000

@@ -1,7 +1,7 @@
 package com.chl.crowd.controller;
 
 import com.chl.crowd.constant.CrowdConstant;
-import com.chl.crowd.entity.Member;
+import com.chl.crowd.entity.po.Member;
 import com.chl.crowd.service.api.MemberService;
 import com.chl.crowd.util.ResultEntity;
 import org.springframework.beans.factory.annotation.Autowired;

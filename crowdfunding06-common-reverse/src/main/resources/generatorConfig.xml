@@ -42,6 +42,12 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- 数据库表名字和我们的 com.chl.crowd.entity 类对应的映射指定 -->
-        <table tableName="auth" domainObjectName="Auth"/>
+        <table tableName="type" domainObjectName="TypePO" />
+        <table tableName="tag" domainObjectName="TagPO" />
+        <table tableName="project" domainObjectName="ProjectPO" />
+        <table tableName="project_item_pic" domainObjectName="ProjectItemPicPO" />
+        <table tableName="member_launch_info" domainObjectName="MemberLaunchInfoPO" />
+        <table tableName="reward" domainObjectName="RewordPO" />
+        <table tableName="member_confirm_info" domainObjectName="MemberConfirmInfoPO" />
     </context>
 </generatorConfiguration>

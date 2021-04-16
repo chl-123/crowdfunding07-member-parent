@@ -2,7 +2,6 @@ package com.chl.crowd.filter;
 
 import com.chl.crowd.constant.AccessPassResources;
 import com.chl.crowd.constant.CrowdConstant;
-import com.chl.crowd.entity.Member;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;

@@ -18,5 +18,8 @@ public class CrowdWebMvcConfig implements WebMvcConfigurer {
         urlPath="/auth/member/to/center/page.html";
         viewName="member-center";
         registry.addViewController(urlPath).setViewName(viewName);
+        urlPath="/auth/member/to/myCrowd/page.html";
+        viewName="member-crowd";
+        registry.addViewController(urlPath).setViewName(viewName);
     }
 }

@@ -1,10 +1,8 @@
 package com.chl.crowd.mapper;
 
-import com.chl.crowd.entity.Member;
-import com.chl.crowd.entity.MemberExample;
-import org.apache.ibatis.annotations.Mapper;
+import com.chl.crowd.entity.po.Member;
+import com.chl.crowd.entity.po.MemberExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

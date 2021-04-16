@@ -1,7 +1,7 @@
 package com.chl.crowd.service.impl;
 
-import com.chl.crowd.entity.Member;
-import com.chl.crowd.entity.MemberExample;
+import com.chl.crowd.entity.po.Member;
+import com.chl.crowd.entity.po.MemberExample;
 import com.chl.crowd.mapper.MemberMapper;
 import com.chl.crowd.service.api.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;

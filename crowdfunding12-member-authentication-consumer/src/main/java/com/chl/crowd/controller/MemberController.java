@@ -1,13 +1,13 @@
 package com.chl.crowd.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.chl.crowd.api.MySQLRemoteService;
 import com.chl.crowd.api.RedisRemoteService;
 import com.chl.crowd.config.ShortMessageConfig;
 import com.chl.crowd.constant.CrowdConstant;
-import com.chl.crowd.entity.Member;
-import com.chl.crowd.entity.MemberLoginVO;
-import com.chl.crowd.entity.MemberVO;
+import com.chl.crowd.entity.po.Member;
+
+import com.chl.crowd.entity.vo.MemberLoginVO;
+import com.chl.crowd.entity.vo.MemberVO;
 import com.chl.crowd.util.CrowdUtil;
 import com.chl.crowd.util.ResultEntity;
 import com.google.common.base.Objects;
@@ -16,15 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Controller
@@ -114,7 +110,7 @@ MemberController {
             return "member-register";
         }
 
-        return "redirect:/auth/member/to/login/page.html";
+        return "redirect:http://localhost:80/auth/member/to/login/page.html";
     }
 /*
 * 执行登录
@@ -152,7 +148,7 @@ MemberController {
         MemberLoginVO memberLoginVO=new MemberLoginVO(member.getId(),member.getUsername(),member.getEmail());
         session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER,memberLoginVO);
 
-        return "redirect:/auth/member/to/center/page.html";
+        return "redirect:http://localhost:80/auth/member/to/center/page.html";
 
 
     }

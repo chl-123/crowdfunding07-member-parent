@@ -1,4 +1,4 @@
-package com.chl.crowd.entity;
+package com.chl.crowd.entity.po;
 
 import java.util.ArrayList;
 import java.util.List;

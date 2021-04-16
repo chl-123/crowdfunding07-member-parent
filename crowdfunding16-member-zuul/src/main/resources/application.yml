@@ -18,6 +18,12 @@ zuul:
     crowd-portal:
       service-id: chl-auth
       path: /**
+    crowd-project:
+      service-id: chl-auth-project
+      path: /project/**
 chl-auth:
   ribbon:
     listOfServers: http://localhost:4444
+chl-auth-project:
+  ribbon:
+    listOfServers: http://localhost:5555

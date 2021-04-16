@@ -1,6 +1,6 @@
 package com.chl.crowd.test;
 
-import com.chl.crowd.entity.Member;
+import com.chl.crowd.entity.po.Member;
 import com.chl.crowd.mapper.MemberMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
