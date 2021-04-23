@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/crowdfunding05-common-util/pom.xml" />
         <option value="$PROJECT_DIR$/crowdfunding06-common-reverse/pom.xml" />
+        <option value="$PROJECT_DIR$/../FastDFS-Service/pom.xml" />
       </list>
     </option>
   </component>

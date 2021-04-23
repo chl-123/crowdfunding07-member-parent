@@ -2,6 +2,7 @@ package com.chl.crowd.api;
 
 import com.chl.crowd.entity.po.Member;
 
+import com.chl.crowd.entity.vo.ProjectVO;
 import com.chl.crowd.util.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,4 +15,6 @@ public interface MySQLRemoteService {
     ResultEntity<Member> getMemberByLoginAcctRemote(@RequestParam("loginacct")String loginacct);
     @RequestMapping("/save/member/remote")
     ResultEntity<String> saveMember(@RequestBody Member member);
+    @RequestMapping("/save/project/vo/remote")
+    ResultEntity<String> saveProjectVORemote(@RequestBody ProjectVO projectVO, @RequestParam("memberId") Integer memberId);
 }

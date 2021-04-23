@@ -20,6 +20,7 @@
         <module>crowdfunding15-member-pay-consumer</module>
         <module>crowdfunding16-member-zuul</module>
         <module>crowdfunding17-member-api</module>
+        <module>crowdfunding18-member-fastdfsServic</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -54,12 +55,6 @@
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
                 <version>2.4.0</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-            <dependency>
-                <groupId>org.csource</groupId>
-                <artifactId>fastdfs-client-java</artifactId>
-                <version>1.27-RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

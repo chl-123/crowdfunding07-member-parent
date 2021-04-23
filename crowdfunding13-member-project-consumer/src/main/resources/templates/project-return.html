@@ -90,7 +90,7 @@
 						<ul class="nav navbar-nav">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>
-									[[${session.loginMember.username}]]<span class="caret"></span></a>
+									<!--[[${session.loginMember.username}]]-->dddd<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="member.html"><i
 											class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
@@ -374,11 +374,12 @@
 							</div>
 						</div>
 						<div class="panel-footer" style="text-align: center;">
-							<button type="button" class="btn  btn-default btn-lg"
-								onclick="window.location.href='start-step-1.html'">上一步</button>
+							<!--<button type="button" class="btn  btn-default btn-lg"
+								onclick="window.location.href='start-step-1.html'">上一步</button>-->
+							<a th:href="@{/project/launch/project/page.html}" class="btn  btn-default btn-lg">上一步</a>
 							<!-- <button type="button" class="btn  btn-warning btn-lg"
 								onclick="window.location.href='start-step-3.html'">下一步</button> -->
-							<a th:href="@{/project/create/confirm/page.html}" class="btn btn-warning btn-lg">下一步</a>
+							<a th:href="@{/project/create/to/confirm/page.html}" class="btn btn-warning btn-lg">下一步</a>
 							<a class="btn"> 预览 </a>
 						</div>
 					</div>
@@ -442,6 +443,7 @@
 		// 点击上传图片按钮打开文件选择框
 		$("#uploadBtn").click(function(){
 			$("[name=returnPicture]").click();
+			return false;
 		});
 
 		// 在文件上传框的值改变事件响应函数中预览并上传图片

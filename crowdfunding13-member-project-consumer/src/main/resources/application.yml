@@ -10,6 +10,9 @@ spring:
     host: 127.0.0.1
     session:
       store-type: redis
+  servlet:
+    multipart:
+      enabled: true
 eureka:
   client:
     service-url:
@@ -17,3 +20,10 @@ eureka:
 ribbon:
   ReadTimeout: 70000
   ConnectTimeout: 70000
+aliyun:
+  oss:
+    access-key-id: LTAI5tGdEw6o5uFsxDbsP68r
+    access-key-secret: llPHTgpWBkLrIjquhd14Kuy7oVBS25
+    bucket-domain: http://chl0521.oss-cn-beijing.aliyuncs.com
+    bucket-name: chl0521
+    end-point: http://oss-cn-beijing.aliyuncs.com

@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/crowdfunding15-member-pay-consumer/crowdfunding15-member-pay-consumer.iml" filepath="$PROJECT_DIR$/crowdfunding15-member-pay-consumer/crowdfunding15-member-pay-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/crowdfunding16-member-zuul/crowdfunding16-member-zuul.iml" filepath="$PROJECT_DIR$/crowdfunding16-member-zuul/crowdfunding16-member-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/crowdfunding17-member-api/crowdfunding17-member-api.iml" filepath="$PROJECT_DIR$/crowdfunding17-member-api/crowdfunding17-member-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfunding18-member-fastdfsServic/crowdfunding18-member-fastdfsServic.iml" filepath="$PROJECT_DIR$/crowdfunding18-member-fastdfsServic/crowdfunding18-member-fastdfsServic.iml" />
     </modules>
   </component>
 </project>

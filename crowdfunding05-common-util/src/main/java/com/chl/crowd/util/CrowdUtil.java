@@ -1,12 +1,20 @@
 package com.chl.crowd.util;
 
 import com.aliyun.api.gateway.demo.util.HttpUtils;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.common.comm.ResponseMessage;
+import com.aliyun.oss.model.PutObjectResult;
 import com.chl.crowd.constant.CrowdConstant;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
+import org.csource.common.MyException;
+import org.csource.fastdfs.*;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 尚筹网项目通用工具方法类
@@ -151,4 +160,85 @@ public class CrowdUtil {
       return code;
 
   }
+  public  static void upload(String filePath,String file_ext_name) throws IOException, MyException {
+      ClientGlobal.init("config/fdfs_client.conf");
+
+      ClientGlobal.initByProperties("config/fastdfs-client.properties");
+      //3、创建一个TrackerClient对象
+      TrackerClient trackerClient = new TrackerClient();
+
+      //4、创建一个TrackerServer对象。
+      TrackerServer trackerServer = trackerClient.getConnection();
+      //5、声明一个StorageServer对象，null。
+      StorageServer storageServer = null;
+      //6、获得StorageClient对象。
+      StorageClient storageClient = new StorageClient(trackerServer, storageServer);
+
+      //7、直接调用StorageClient对象方法上传文件即可。
+      String[] result = storageClient.upload_file("C:\\Users\\chl\\Desktop\\FastDFS\\test1.png", "png", null);
+      //注意你的fastdfs产生的地址是否有端口号,有的话这里也需要添加
+
+/*
+*
+* 用户登录名称 chl0521@1398599597977363.onaliyun.com
+AccessKey ID LTAI5tGdEw6o5uFsxDbsP68r
+AccessKey Secret llPHTgpWBkLrIjquhd14Kuy7oVBS25
+* */
+
+      StringBuilder sb = new 	StringBuilder("http://192.168.60.132:8555/");
+      sb.append(result[0]).append("/").append(result[1]);
+  }
+
+    public static ResultEntity<String> uploadFileToOss(
+            String endpoint,
+            String accessKeyId,
+            String accessKeySecret,
+            InputStream inputStream,
+            String bucketName,
+            String bucketDomain,
+            String originalName) {
+        // 创建 OSSClient 实例。
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        // 生成上传文件的目录
+        String folderName = new SimpleDateFormat("yyyyMMdd").format(new Date());
+        // 生成上传文件在 OSS 服务器上保存时的文件名
+        // 原始文件名： beautfulgirl.jpg
+        // 生成文件名： wer234234efwer235346457dfswet346235.jpg
+        // 使用 UUID 生成文件主体名称
+        String fileMainName = UUID.randomUUID().toString().replace("-", "");
+        // 从原始文件名中获取文件扩展名
+        String extensionName = originalName.substring(originalName.lastIndexOf("."));
+        // 使用目录、 文件主体名称、 文件扩展名称拼接得到对象名称
+        String objectName = folderName + "/" + fileMainName + extensionName;
+        try {
+        // 调用 OSS 客户端对象的方法上传文件并获取响应结果数据
+            PutObjectResult putObjectResult = ossClient.putObject(bucketName, objectName,
+                    inputStream);
+        // 从响应结果中获取具体响应消息
+            ResponseMessage responseMessage = putObjectResult.getResponse();
+        // 根据响应状态码判断请求是否成功
+            if (responseMessage == null) {
+        // 拼接访问刚刚上传的文件的路径
+                String ossFileAccessPath = bucketDomain + "/" + objectName;
+        // 当前方法返回成功
+                return ResultEntity.successWithData(ossFileAccessPath);
+            } else {
+        // 获取响应状态码
+                int statusCode = responseMessage.getStatusCode();
+                // 如果请求没有成功， 获取错误消息
+                String errorMessage = responseMessage.getErrorResponseAsString();
+        // 当前方法返回失败
+                return ResultEntity.failed(" 当 前 响 应 状 态 码 =" + statusCode + " 错 误 消 息 =" + errorMessage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        // 当前方法返回失败
+            return ResultEntity.failed(e.getMessage());
+        } finally {
+            if (ossClient != null) {
+        // 关闭 OSSClient。
+                ossClient.shutdown();
+            }
+        }
+    }
 }
