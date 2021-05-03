@@ -4,10 +4,7 @@ import com.chl.crowd.entity.po.MemberConfirmInfoPO;
 import com.chl.crowd.entity.po.MemberLaunchInfoPO;
 import com.chl.crowd.entity.po.ProjectPO;
 import com.chl.crowd.entity.po.RewordPO;
-import com.chl.crowd.entity.vo.MemberConfirmInfoVO;
-import com.chl.crowd.entity.vo.MemberLauchInfoVO;
-import com.chl.crowd.entity.vo.ProjectVO;
-import com.chl.crowd.entity.vo.ReturnVO;
+import com.chl.crowd.entity.vo.*;
 import com.chl.crowd.mapper.*;
 import com.chl.crowd.service.api.ProjectService;
 import org.springframework.beans.BeanUtils;
@@ -16,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -102,5 +100,53 @@ public class ProjectServiceImpl implements ProjectService {
         memberConfirmInfoPO.setMemberid(memberId);
         memberConfirmInfoPOMapper.insert(memberConfirmInfoPO);
 
+    }
+
+    public List<PortalTypeVO> getPortalTypeVO() {
+        return projectPOMapper.selectPortalTypeVOList();
+    }
+
+    public DetailProjectVO getDetailProjectVO(Integer projectId) {
+        // 查询获得对象
+        DetailProjectVO detailProjectVO = projectPOMapper.selectDetailProjectVO(projectId);
+        //根据status确定statusText
+        Integer status = detailProjectVO.getStatus();
+        switch (status){
+            case 0:
+                detailProjectVO.setStatusText("审核中");
+                break;
+            case 1:
+                detailProjectVO.setStatusText("众筹中");
+                break;
+            case 2:
+                detailProjectVO.setStatusText("众筹成功");
+                break;
+            case 3:
+                detailProjectVO.setStatusText("已关闭");
+                break;
+
+        }
+        //根据deployDate计算lastDay
+        String deployDate = detailProjectVO.getDeployDate();
+        //获取当前日期
+        Date CurrentDate = new Date();
+        //把众筹日期解析成Date类型
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date deployParseDate = format.parse(deployDate);
+            //获取当前日期的时间戳
+            long currentDateTimeStamp = CurrentDate.getTime();
+            //获取众筹日期的时间戳
+            long deployDateTimeStamp = deployParseDate.getTime();
+            long pastDays = (currentDateTimeStamp - deployDateTimeStamp)/1000/60/60/24;
+            //使用总的众筹天数减去已经过去的时间
+            Integer totalDays = detailProjectVO.getDay();
+            Integer lastDays =(int) (totalDays - pastDays);
+            detailProjectVO.setLastDay(lastDays);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return detailProjectVO;
     }
 }

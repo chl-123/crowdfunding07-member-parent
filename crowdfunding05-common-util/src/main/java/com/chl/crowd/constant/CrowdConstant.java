@@ -1,5 +1,7 @@
 package com.chl.crowd.constant;
 
+import java.util.Collection;
+
 public class CrowdConstant {
 
   public static final String MESSAGE_LOGIN_FAILED = "抱歉！账号密码错误！请重新输入！";
@@ -24,4 +26,5 @@ public class CrowdConstant {
   public static final String ATTR_NAME_LOGIN_MEMBER = "loginMember";
   public static final String ATTR_NAME_TEMPLE_PROJECT = "tempProject";
     public static final String ATTR_NAME_TEMPLE_PROJECT_MISSING = "零时文件缺失";
+    public static final String  ATTR_NAME_PORTAL_DATA = "portal_data";
 }

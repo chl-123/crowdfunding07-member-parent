@@ -5,14 +5,12 @@ import com.chl.crowd.config.FileResponseData;
 import com.chl.crowd.config.OSSProperties;
 import com.chl.crowd.constant.CrowdConstant;
 import com.chl.crowd.entity.po.Member;
-import com.chl.crowd.entity.vo.MemberConfirmInfoVO;
-import com.chl.crowd.entity.vo.MemberLoginVO;
-import com.chl.crowd.entity.vo.ProjectVO;
-import com.chl.crowd.entity.vo.ReturnVO;
+import com.chl.crowd.entity.vo.*;
 import com.chl.crowd.util.CrowdUtil;
 import com.chl.crowd.util.ResultEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -271,6 +269,16 @@ public class ProjectConsumerController {
         return "redirect:http://localhost:80/project/create/finish/page.html";
 
 
+    }
+    @RequestMapping("/get/projcet/detail/page/{projectId}")
+    public String getProjectDetail(@PathVariable("projectId")Integer projectId, Model model){
+
+        ResultEntity<DetailProjectVO> resultEntity= mySQLRemoteService.getDetailProjectVORemote(projectId);
+        if (ResultEntity.SUCCESS.equals(resultEntity.getResult())) {
+            DetailProjectVO detailProjectVO = resultEntity.getData();
+            model.addAttribute("detailProjectVO",detailProjectVO);
+        }
+        return "project-detail";
     }
 
 
